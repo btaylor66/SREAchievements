@@ -13,8 +13,7 @@
          {{ message }}
       {%- endfor %}
 		
-      <h3>Students (<a href = "{{ url_for('new') }}">Add Student
-         </a>)</h3>
+      <h3>Users (<a href = "{{ url_for('new') }}">Add User</a>)</h3>
       
       <table>
          <thead>
@@ -37,6 +36,26 @@
             {% endfor %}
          </tbody>
       </table>
-      
+      <br>
+      <br>
+      <table>
+         <thead>
+            <tr>
+               <th>Team_Id</th>
+               <th>Team Name</th>
+               <th>Users</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for team in teams %}
+               <tr>
+                  <td>{{ team.team_id }}</td>
+                  <td>{{ team.team_name }}</td>
+                  <td>{{ team.users }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
    </body>
 </html>
