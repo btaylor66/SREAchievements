@@ -20,6 +20,7 @@ class Achievement(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), unique=True)
     description = db.Column(db.String(50))
+    image = db.Column(db.String(100), nullable=True)
     people = db.relationship('Person', secondary=m2m_achievement_person, backref='Achievement')
 
     # team = db.relationship("Teams", back_populates="users")
@@ -27,9 +28,10 @@ class Achievement(db.Model):
 
     known_achievements = []
 
-    def __init__(self, name, description):
+    def __init__(self, name, description, image):
         self.name = name
         self.description = description
+        self.image = image
         # self.team_id = team_id
         # self.team = team
 

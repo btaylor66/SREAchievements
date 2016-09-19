@@ -53,11 +53,11 @@ def create_teams():
 
 @app.route('/')
 def show_all():
-    return render_template('show_all.html', users=person.Person.query.all(), teams=team.Team.query.all())
+    return render_template('show_all.html', users=person.Person.query.all(), teams=team.Team.query.all(), achievement=achievement.Achievement.query.all())
 
 
-@app.route('/new', methods=['GET', 'POST'])
-def new():
+@app.route('/new_user', methods=['GET', 'POST'])
+def new_user():
     if request.method == 'POST':
         if not request.form['username'] or not request.form['fullname']:
             flash('Please enter all the fields', 'error')
@@ -68,7 +68,22 @@ def new():
             db.session.commit()
             flash('Record was successfully added')
             return redirect(url_for('show_all'))
-    return render_template('new.html')
+    return render_template('new_user.html')
+
+
+@app.route('/new_achievement', methods=['GET', 'POST'])
+def new_achievement():
+    if request.method == 'POST':
+        if not request.form['name'] or not request.form['description']:
+            flash('Please enter all the fields', 'error')
+        else:
+            badge = achievement.Achievement(name=request.form['name'], description=request.form['description'], image=request.form['image'])
+
+            db.session.add(badge)
+            db.session.commit()
+            flash('Record was successfully added')
+            return redirect(url_for('show_all'))
+    return render_template('new_achievement.html')
 
 
 if __name__ == '__main__':

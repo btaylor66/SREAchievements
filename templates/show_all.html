@@ -13,7 +13,7 @@
          {{ message }}
       {%- endfor %}
 		
-      <h3>Users (<a href = "{{ url_for('new') }}">Add User</a>)</h3>
+      <h3>Users (<a href = "{{ url_for('new_user') }}">Add User</a>)</h3>
       
       <table>
          <thead>
@@ -28,6 +28,29 @@
                <tr>
                   <td>{{ user.username }}</td>
                   <td>{{ user.fullname }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <br>
+      <br>
+      <h3>Achievements (<a href = "{{ url_for('new_achievement') }}">Add Achievement</a>)</h3>
+
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Description</th>
+               <th>Image</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for badge in achievement %}
+               <tr>
+                  <td>{{ badge.name }}</td>
+                  <td>{{ badge.description }}</td>
+                  <td>{{ badge.image }}</td>
                </tr>
             {% endfor %}
          </tbody>
