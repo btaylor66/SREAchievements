@@ -4,7 +4,7 @@
    <body>
       
       <h3>
-         <a href = "{{ url_for('show_all') }}">Comments - Flask 
+         <a href = "{{ url_for('show_all') }}">Comments - Flask
             SQLAlchemy example</a>
       </h3>
       
@@ -20,8 +20,6 @@
             <tr>
                <th>Username</th>
                <th>Full Name</th>
-               <th>Team Id</th>
-               <th>Team Name</th>
             </tr>
          </thead>
          
@@ -30,8 +28,6 @@
                <tr>
                   <td>{{ user.username }}</td>
                   <td>{{ user.fullname }}</td>
-                  <td>{{ user.team_id }}</td>
-                  <td>{{ user.team }}</td>
                </tr>
             {% endfor %}
          </tbody>
@@ -41,18 +37,16 @@
       <table>
          <thead>
             <tr>
-               <th>Team_Id</th>
+               <th>Id</th>
                <th>Team Name</th>
-               <th>Users</th>
             </tr>
          </thead>
 
          <tbody>
             {% for team in teams %}
                <tr>
-                  <td>{{ team.team_id }}</td>
-                  <td>{{ team.team_name }}</td>
-                  <td>{{ team.users }}</td>
+                  <td>{{ team.id }}</td>
+                  <td>{{ team.name }}</td>
                </tr>
             {% endfor %}
          </tbody>
