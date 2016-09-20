@@ -4,6 +4,7 @@
 
 import collections
 import operator
+import json
 
 from sreachievementswebapp.dbmodels import db
 
@@ -36,8 +37,4 @@ class Person(db.Model):
         self.fullname = fullname
         # self.team_id = team_id
         # self.team = team
-
-    # def __repr__(self):
-    #    return "<Team(username='%s', fullname='%s'), team_id='%s', team='%s'>" % (
-    #        self.username, self.fullname, self.team_id, self.team)
 

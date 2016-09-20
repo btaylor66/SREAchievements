@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <h1>User: {{ user.fullname }}! </h1>
+    <h2>username: {{ user.username }}! </h2>
+  <hr>
+  {% for badge in achievements %}
+  <p>
+    {{ badge.name }} says: <b>{{ badge.image }}</b>
+  </p>
+  {% endfor %}
+{% endblock %}
+</body>
+</html>
